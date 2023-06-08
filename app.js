@@ -1,0 +1,1 @@
+export const sum = 4 + 4;
