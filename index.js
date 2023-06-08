@@ -1,21 +1,13 @@
-const http = require('http');
+import express from 'express';
 
-const server = http.createServer((req, res) => {
-  if(req.url === '/')  {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello, world!\n');
-  }
+const app = express();
 
-  if(req.url === '/api/users/1')  {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello, John!\n');
-  }
+//get request for route /
+app.get('/', (req, res) => {
+    res.send('Hello World')
+})
 
-  res.writeHead(404, { 'Content-Type': 'text/plain' });
-  res.end('404 Error\n');
-  
-});
+//get request for route /api/users/1
+//TODO
 
-server.listen(5555, () => {
-  console.log('Server is running on port 5555');
-});
+app.listen(5555, () => console.log('Listening on port 5555...'))
